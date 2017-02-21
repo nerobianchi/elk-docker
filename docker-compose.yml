@@ -1,0 +1,48 @@
+version: '2'
+
+services:
+    elasticsearch:
+        build: ./elasticsearch
+        ports:
+            - "9200:9200"
+            - "9300:9300"
+        volumes:
+            - ./elasticsearch/config:/usr/share/elasticsearch/config
+        networks:
+          - docker_elk
+
+    kibana:
+        build: ./kibana
+        ports:
+            - "5601:5601"
+        volumes:
+            - ./kibana/config/:/etc/kibana
+        depends_on:
+            - elasticsearch
+        networks:
+          - docker_elk
+
+    logstash:
+        build: ./logstash
+        command: -f /etc/logstash/conf.d/
+        volumes:
+          - ./logstash/conf:/etc/logstash/conf.d
+        ports:
+            - "5044:5044"
+        depends_on:
+            - kibana
+        networks:
+          - docker_elk
+
+    filebeat:
+        build: ./filebeat
+        volumes:
+            - c:/logs:/tmp/logs
+        depends_on:
+            - logstash
+        networks:
+          - docker_elk
+
+networks:
+  docker_elk:
+    driver: bridge

@@ -1,0 +1,13 @@
+# network.host: 0.0.0.0
+
+# http.host: 0.0.0.0
+# transport.host: 127.0.0.1
+network.host: 0.0.0.0
+
+xpack.security.enabled: false #both elastic and kibana
+xpack.monitoring.enabled: true #both elastic and kibana
+xpack.graph.enabled: true #both elastic and kibana
+xpack.watcher.enabled: true #only in elastic
+
+http.cors.enabled: true
+http.cors.allow-origin: "*"

@@ -1,0 +1,10 @@
+xpack.security.enabled: false #both elastic and kibana
+xpack.monitoring.enabled: true #both elastic and kibana
+xpack.graph.enabled: true #both elastic and kibana
+xpack.reporting.enabled: true #only in kibana
+
+# elasticsearch.ssl.verify: false
+
+server.port: 5601
+server.host: "0.0.0.0"
+elasticsearch.url: "http://elasticsearch:9200"
