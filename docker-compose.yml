@@ -37,7 +37,7 @@ services:
     filebeat:
         build: ./filebeat
         volumes:
-            - c:/logs:/tmp/logs
+            - ./filebeat/logs:/tmp/logs
         depends_on:
             - logstash
         networks:

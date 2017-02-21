@@ -9,5 +9,5 @@ xpack.monitoring.enabled: true #both elastic and kibana
 xpack.graph.enabled: true #both elastic and kibana
 xpack.watcher.enabled: true #only in elastic
 
-http.cors.enabled: true
-http.cors.allow-origin: "*"
+# http.cors.enabled: true
+# http.cors.allow-origin: "*"
