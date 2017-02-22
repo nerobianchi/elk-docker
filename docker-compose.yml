@@ -24,7 +24,7 @@ services:
 
     logstash:
         build: ./logstash
-        # command: -f /etc/logstash/conf.d/logstash.conf
+        command: -f /etc/logstash/conf.d/logstash.conf
         volumes:
           #- ./logstash/conf:/usr/share/logstash/config
           - ./logstash/conf:/etc/logstash/conf.d

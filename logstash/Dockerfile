@@ -1,5 +1,5 @@
-FROM docker.elastic.co/logstash/logstash:5.2.1
-# FROM logstash:latest
+# FROM docker.elastic.co/logstash/logstash:5.2.1
+FROM logstash:5.2.1
 
 ENV ELASTICSEARCH_HOST "elasticsearch:9200"
 # ENV ELASTICSEARCH_URL "http://elasticsearch:9200"
@@ -10,7 +10,7 @@ ENV ELASTICSEARCH_HOST "elasticsearch:9200"
 # RUN mv /tmp/logstash.conf.tmp /etc/logstash/conf.d/logstash.conf
 
 # EXPOSE 5044:5044
-
+# ENV PATH "$PATH:/usr/bin/"
 
 # VOLUME ./conf/logstash.conf:/etc/logstash/conf.d
 
