@@ -17,20 +17,22 @@ services:
             - "5601:5601"
         volumes:
             - ./kibana/config/:/etc/kibana
-        depends_on:
+        links:
             - elasticsearch
         networks:
           - docker_elk
 
     logstash:
         build: ./logstash
-        command: -f /etc/logstash/conf.d/
+        # command: -f /etc/logstash/conf.d/logstash.conf
         volumes:
+          #- ./logstash/conf:/usr/share/logstash/config
           - ./logstash/conf:/etc/logstash/conf.d
         ports:
             - "5044:5044"
-        depends_on:
-            - kibana
+            # - "9600:9600"
+        links:
+            - elasticsearch
         networks:
           - docker_elk
 
@@ -38,8 +40,9 @@ services:
         build: ./filebeat
         volumes:
             - ./filebeat/logs:/tmp/logs
-        depends_on:
+        links:
             - logstash
+            - elasticsearch
         networks:
           - docker_elk
 

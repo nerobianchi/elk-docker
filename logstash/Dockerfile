@@ -1,9 +1,11 @@
-FROM logstash:latest
+FROM docker.elastic.co/logstash/logstash:5.2.1
+# FROM logstash:latest
 
-# ENV ELASTICSEARCH_HOST "elasticsearch:9200"
+ENV ELASTICSEARCH_HOST "elasticsearch:9200"
+# ENV ELASTICSEARCH_URL "http://elasticsearch:9200"
 
 # COPY conf/logstash.conf /etc/logstash/conf.d/logstash.conf
-# COPY conf/template.json /etc/logstash/conf.d/template.json
+# # COPY conf/template.json /etc/logstash/conf.d/template.json
 # RUN cat /etc/logstash/conf.d/logstash.conf | sed "s/ELASTICSEARCH_HOST/$ELASTICSEARCH_HOST/" > /tmp/logstash.conf.tmp
 # RUN mv /tmp/logstash.conf.tmp /etc/logstash/conf.d/logstash.conf
 

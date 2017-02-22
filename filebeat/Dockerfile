@@ -10,4 +10,4 @@ COPY ./config/filebeat.yml /etc/filebeat/filebeat.yml
 ENV PATH "$PATH:/usr/bin/"
 # ENV PATH "$PATH:usr/share/filebeat/bin/"
 
-CMD ["filebeat.sh", "-c", "/etc/filebeat/filebeat.yml -e -v"]
+CMD ["filebeat.sh", "-e -c", "/etc/filebeat/filebeat.yml"]
