@@ -8,6 +8,5 @@ RUN curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.
 COPY ./config/filebeat.yml /etc/filebeat/filebeat.yml
 
 ENV PATH "$PATH:/usr/bin/"
-# ENV PATH "$PATH:usr/share/filebeat/bin/"
 
 CMD ["filebeat.sh", "-e -c", "/etc/filebeat/filebeat.yml"]
