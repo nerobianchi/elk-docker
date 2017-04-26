@@ -1,5 +1,5 @@
 # FROM docker.elastic.co/logstash/logstash:5.2.1
-FROM logstash:5.2.1
+FROM logstash:5.3.1
 
 ENV ELASTICSEARCH_HOST "elasticsearch:9200"
 # ENV ELASTICSEARCH_URL "http://elasticsearch:9200"
